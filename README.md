@@ -1,3 +1,3 @@
 # prefix-postfix-infix-converter
 
-Play [here](https://osiris.ubishops.ca/mlaforest/projects/converter/index.html).
+Try [here](https://osiris.ubishops.ca/mlaforest/projects/converter/index.html).
