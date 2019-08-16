@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+html {
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+body {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: hsl(0, 0%, 75%);
+}
+
+input[type="text"] {
+  display: block;
+  width: 100%;
+  font-size: 15px;
+}
+
+#converter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 20vh;
+  padding: 0 1rem;
+}
+
+#from {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+}
+
+#output {
+  width: 60%;
+
+  >div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 50vh;
+    padding: 1rem;
+    width: 100%;
+
+    fieldset {
+      border: 5px solid hsl(0, 0%, 25%);
+      height: 3.5rem;
+    }
+  }
+}
+
+#instructions {
+  // background-color: orange;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 4%;
+
+  span {
+    text-align: center;
+    width: 80%;
+  }
+}
+
+fieldset {
+  display: none;
+}

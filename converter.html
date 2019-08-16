@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Converter</title>
+    <link rel="stylesheet" href="/converter.scss">
+</head>
+
+<body>
+    <header>
+        <h1>infix-prefix-postfix converter</h1>
+        <div id="instructions">
+            <h3>Instructions</h3>
+            <span>Separate tokens with spaces.</span>
+            <span>Make sure you select the correct input format.</span>
+            <span>To insert tokens inside the expression, use keyboard input instead of the buttons, and don't forget
+                the spaces.</span>
+        </div>
+    </header>
+    <form id="converter">
+        <div id="from">
+            <label for="from">From: </label>
+            <label for="fromInFix">InFix</label>
+            <input type="radio" name="from" id="fromInFix" value="InFix" checked>
+            <label for="fromPostFix">PostFix</label>
+            <input type="radio" name="from" id="fromPostFix" value="PostFix">
+            <label for="fromPreFix">PreFix</label>
+            <input type="radio" name="from" id="fromPreFix" value="PreFix">
+        </div>
+        <input type="text" id="input" placeholder="Enter your expression here...">
+        <div id="inputs-btn">
+            <button class="input-btn" value="(">(</button>
+            <button class="input-btn" value=")">)</button>
+            <button class="input-btn" value="+">+</button>
+            <button class="input-btn" value="-">-</button>
+            <button class="input-btn" value="/">/</button>
+            <button class="input-btn" value="*">*</button>
+            <button class="input-btn" value="^">^</button>
+            <button class="input-btn" value="0">0</button>
+            <button class="input-btn" value="1">1</button>
+            <button class="input-btn" value="2">2</button>
+            <button class="input-btn" value="3">3</button>
+            <button class="input-btn" value="4">4</button>
+            <button class="input-btn" value="5">5</button>
+            <button class="input-btn" value="6">6</button>
+            <button class="input-btn" value="7">7</button>
+            <button class="input-btn" value="8">8</button>
+            <button class="input-btn" value="9">9</button>
+        </div>
+        <button id="backspace">&larr;</button>
+        <input type="submit" value="Convert">
+    </form>
+    <div id="output">
+        <fieldset id="InFix"></fieldset>
+        <fieldset id="PostFix"></fieldset>
+        <fieldset id="PreFix"></fieldset>
+        <fieldset id="eval"></fieldset>
+    </div>
+
+    <script src="/converter.ts"></script>
+</body>
+
+</html>
