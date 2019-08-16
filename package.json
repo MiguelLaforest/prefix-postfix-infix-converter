@@ -1,9 +1,28 @@
 {
-  "devDependencies": {
-    "sass": "^1.22.3",
-    "typescript": "^3.5.3"
-  },
+  "name": "converter",
+  "version": "1.0.0",
+  "description": "Play [here](https://osiris.ubishops.ca/mlaforest/projects/converter/index.html).",
+  "main": "index.js",
   "dependencies": {
-    "jquery": "^3.4.1"
-  }
+    "jquery": "^3.4.1",
+    "typescript": "^3.5.3",
+    "sass": "^1.22.3"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10"
+  },
+  "scripts": {
+    "build": "parcel build app/index.html --public-url ./ -d build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MiguelLaforest/prefix-postfix-infix-converter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MiguelLaforest/prefix-postfix-infix-converter/issues"
+  },
+  "homepage": "https://github.com/MiguelLaforest/prefix-postfix-infix-converter#readme"
 }
