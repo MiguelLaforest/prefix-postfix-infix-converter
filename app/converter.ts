@@ -1,4 +1,4 @@
-import * as $ from "jquery";
+const $ = require("jquery");
 
 const openingBrackets = " ( [ { ";
 const closingBrackets = " ) ] } ";
@@ -185,7 +185,6 @@ class Expression {
             expression += n1;
 
             operandsStack.push(expression);
-            console.log("BBBBBBBBBBexpression pushed");
           }
           operatorStack.pop();
         }
@@ -319,65 +318,47 @@ function isOperand(s) {
 function peek(stack) {
   return stack[stack.length - 1];
 }
-const arr = [1, 2, 3, 4, 5];
 
-arr;
+$("#converter").on("submit", event => {
+  event.preventDefault();
+  let input = $("#input").val();
+  let direction = $('input[name="from"]:checked').val().toString();
 
-arr.forEach(element => {
-  if (element % 2 == 0) {
-    element; /* ?.*/
+  let expression = new Expression(input.toString(), direction);
+
+  /* ===============          INFIX TO POSFIX          ===============*/
+  $("#InFix").html("");
+  $("#InFix").append(`<legend>POSTFIX</legend>${expression.postfix}`);
+
+  /* ===============          INFIX TO PREFIX          ===============*/
+  $("#PostFix").html("");
+  $("#PostFix").append(`<legend>PREFIX</legend>${expression.prefix}`);
+
+  /* ===============          POSTFIX TO INFIX          ===============*/
+  $("#PreFix").html("");
+  $("#PreFix").append(`<legend>INFIX</legend>${expression.infix}`);
+
+  /* ===============          EVALUATE          ===============*/
+  if (expression.evaluation.toString() != "undefined") {
+    $("#eval").html("");
+    $("#eval").append(
+      `<legend>EVALUATE</legend>${expression.evaluation.toString()}`
+    );
   }
-}); /* ?.*/
 
-$(window).ready(function() {
-  $("#converter").on("submit", e => {
-    e.preventDefault();
-    let input = $("#input").val();
-    let direction = $("input[name=\"from\"]:checked")
-      .val()
-      .toString();
+  $("fieldset").css({ display: "block" });
+});
 
-    let expression = new Expression(input.toString(), direction);
-
-    /* ===============          INFIX TO POSFIX          ===============*/
-    $("#InFix").html("");
-    $("#InFix").append(`<legend>POSTFIX</legend>${expression.postfix}`);
-
-    /* ===============          INFIX TO PREFIX          ===============*/
-    $("#PostFix").html("");
-    $("#PostFix").append(`<legend>PREFIX</legend>${expression.prefix}`);
-
-    /* ===============          POSTFIX TO INFIX          ===============*/
-    $("#PreFix").html("");
-    $("#PreFix").append(`<legend>INFIX</legend>${expression.infix}`);
-
-    /* ===============          EVALUATE          ===============*/
-    if (expression.evaluation.toString() != "undefined") {
-      $("#eval").html("");
-      $("#eval").append(
-        `<legend>EVALUATE</legend>${expression.evaluation.toString()}`
-      );
-    }
-
-    $("fieldset").css({ "display": "block" });
-  });
-  $(".input-btn").on("click", e => {
-    let inputValue = $("#input")
-      .val()
-      .toString();
-    let thisValue = $(e.target)
-      .val()
-      .toString();
-    $("#input").val(`${inputValue} ${thisValue}`);
-  });
-
-  console.log(2 * 4);
+$(".input-btn").on("click", e => {
+  e.preventDefault;
+  let inputValue = $("#input").val().toString();
+  let thisValue = $(e.target).val().toString();
+  $("#input").val(`${inputValue} ${thisValue}`);
 });
 
 $("#backspace").on("click", e => {
-  let inputValue = $("#input")
-    .val()
-    .toString();
+  e.preventDefault();
+  let inputValue = $("#input").val().toString();
   console.log(inputValue);
   inputValue = inputValue.slice(0, -2);
   $("#input").val(inputValue);
@@ -443,13 +424,3 @@ function checkPrecedence(n1, n2) {
       return true;
   }
 }
-
-document.addEventListener("keydown", function(event) {
-  if ((event.which >= 96 && event.which <= 105) || event.which == 13) {
-    let keyValue = String.fromCharCode(
-      96 <= event.which && event.which <= 105 ? event.which - 48 : event.which
-    );
-    let inputValue = $("#input").val();
-    $("#input").val(`${inputValue} ${keyValue}`);
-  }
-});

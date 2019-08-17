@@ -46,18 +46,9 @@ input[type="text"] {
 #output {
   width: 60%;
 
-  >div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 50vh;
-    padding: 1rem;
-    width: 100%;
-
-    fieldset {
-      border: 5px solid hsl(0, 0%, 25%);
-      height: 3.5rem;
-    }
+  fieldset {
+    border: 5px solid hsl(0, 0%, 25%);
+    height: 3.5rem;
   }
 }
 
